@@ -1,23 +1,14 @@
-baseurl: https://example.com
+baseurl: https://blog.techfund.jp
 languageCode: en-us
 theme: hugo-theme-stack
 paginate: 5
-title: Example Site
+title: TECHFUND
 
 languages:
     en:
         languageName: English
-        title: Example Site
+        title: TECHFUND
         weight: 1
-    zh-cn:
-        languageName: 中文
-        title: 演示站点
-        weight: 2
-    ar:
-        languageName: عربي
-        languagedirection: rtl
-        title: موقع تجريبي
-        weight: 3
 
 # Change it to your Disqus shortname before using
 disqusShortname: hugo-theme-stack
@@ -54,7 +45,7 @@ params:
 
     sidebar:
         emoji: 🍥
-        subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        subtitle: We support startups that will enrich people's lives and create a world where entrepreneur is recognized as the coolest job in the world.
         avatar:
             enabled: true
             local: true
@@ -196,13 +187,13 @@ menu:
     social:
         - identifier: github
           name: GitHub
-          url: https://github.com/CaiJimmy/hugo-theme-stack
+          url: https://github.com/TECHFUND
           params:
               icon: brand-github
 
         - identifier: twitter
           name: Twitter
-          url: https://twitter.com
+          url: https://twitter.com/techfund_inc
           params:
               icon: brand-twitter
 
