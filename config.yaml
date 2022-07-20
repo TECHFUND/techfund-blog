@@ -9,6 +9,8 @@ params:
     featuredImageField: image
     rssFullContent: true
     favicon:
+    
+    disableKinds: ["about", "search", "links"]
 
     footer:
         since:
