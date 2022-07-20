@@ -1,125 +1,88 @@
-# Victor Hugo
+![Stack](https://i.imgur.com/cCiHOGS.jpg)
+# Hugo Theme Stack
 
-⚠️ **Deprecation Notice** 🏳
+> Card-style Hugo theme designed for bloggers.
 
-We are focusing our resources on building new templates that help you build a better web, because of that we're deprecating this template. We care about the community so we propose if anyone wants to maintain or take stewardship over the project please contact us at [devexperience@netlify.com](mailto:devexperience@netlify.com). If you want to share anything with the team about this template, you can also fill out [this form](https://template-feedback.netlify.app/).
+## Quickstart
 
-As an alternative to this repository, we're recommending to take a look at [Hyas](https://github.com/h-enk/hyas) as a project to make use of. It is focused on latest practices with Hugo and is already completely Netlify deploy ready.
+Use this template: [CaiJimmy/hugo-theme-stack-starter](https://github.com/CaiJimmy/hugo-theme-stack-starter)
 
----
+## Demo
 
-**A Hugo boilerplate for creating truly epic websites**
+[Example Site](https://demo.stack.jimmycai.com/)
 
-This is a boilerplate for using [Hugo](https://gohugo.io/) as a static site generator and [Webpack 5](https://webpack.js.org/) as your asset pipeline.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a2d2807a-a905-4bcb-97da-8da8d847da3d/deploy-status)](https://app.netlify.com/sites/hugo-theme-stack/deploys)
 
-Victor Hugo setup to use [PostCSS v8](http://postcss.org/) and [Babel v7](https://babeljs.io/) for CSS and JavaScript compiling/transpiling.
+## Documentation
 
-This project is released under the [MIT license](LICENSE). Please make sure you understand its implications and guarantees.
+[Documentation](https://docs.stack.jimmycai.com/) | [中文文档](https://docs.stack.jimmycai.com/zh/)
 
-## Usage
+## Introduction
 
-### :exclamation: Prerequisites
+Stack is a simple card-style Hugo theme designed for bloggers, some of its features are:
 
-This template has been tested to work with [Node.js](https://nodejs.org/en/download/) v16 and [npm](https://www.npmjs.com/get-npm) v6.
+- Responsive images support
+- Lazy load images
+- Dark mode
+- Local search
+- [PhotoSwipe](https://photoswipe.com/) integration
+- Archive page template
+- Full native JavaScript, no jQuery or any other frameworks are used
+- No CSS framework, keep it simple and minimal
+- Properly cropped thumbnails
+- Subsection support
+- Table of contents
+- Multilingual mode and RTL support
 
-Next step, clone this repository and run:
+## Requirements
 
-```bash
-npm install
-```
+It's necessary to use **Hugo Extended ≥ 0.87.0**.
 
-This will take some time and will install all packages necessary to run Victor Hugo and its tasks.
+## Installation
 
-### :construction_worker: Development
+* Route 1: Clone / Download this repository to `themes` folder
+* Route 2: Turn your site into a hugo module and add this theme as a module dependency
 
-While developing your website, use:
+ Edit your site config following `exampleSite/config.yaml`.
 
-```bash
-npm start
-```
+*Note: Remove `config.toml` if there is one in the site folder.*
 
-or for developing your website with `hugo server --buildDrafts --buildFuture`, use:
+Check [documentation](https://docs.stack.jimmycai.com/) for more details.
 
-```bash
-npm run preview
-```
+## Copyright
 
-Then visit http://localhost:3000/ _- or a new browser windows popped-up already -_ to preview your new website. Webpack Dev Server will automatically reload the CSS or refresh the whole page, when stylesheets or content changes.
+**Licensed under the GNU General Public License v3.0**
 
-### :package: Static build
+Please do not remove the "*Theme Stack designed by Jimmy*" text and link.
 
-To build a static version of the website inside the `/dist` folder, run:
+If you want to port this theme to another blogging platform, please let me know🙏.
 
-```bash
-npm run build
-```
+## Sponsoring
 
-To get a preview of posts or articles not yet published, run:
+If you like this theme, give it a star, and consider supporting its development:
 
-```bash
-npm run build:preview
-```
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/C0C530AXX)
 
-See [package.json](package.json#L8) for all tasks.
+Your support is greatly appreciated :)
 
-## Structure
+## Thanks to
 
-```
-|--site                // Everything in here will be built with hugo
-|  |--content          // Pages and collections - ask if you need extra pages
-|  |--data             // YAML data files with any data for use in examples
-|  |--layouts          // This is where all templates go
-|  |  |--partials      // This is where includes live
-|  |  |--index.html    // The index page
-|  |--resources        // This is where all assets go
-|  |--static           // Files in here ends up in the public folder
-|--src                 // Files that will pass through the asset pipeline
-|  |--css              // Webpack will bundle imported css separately
-|  |--index.js         // index.js is the webpack entry for your css & js assets
-```
+| Project | Description | Licence |
+| ------- | ----------- | ------- |
+| [PhotoSwipe](https://photoswipe.com/) | For the lightbox effect | [MIT](https://github.com/dimsemenov/PhotoSwipe/blob/master/LICENSE) |
+| [Normalize.css](https://github.com/necolas/normalize.css) | - | [MIT](https://github.com/necolas/normalize.css/blob/master/LICENSE.md) |
+| [Node Vibrant](https://github.com/Vibrant-Colors/node-vibrant) | To extract the color from images | [MIT](https://github.com/Vibrant-Colors/node-vibrant/blob/master/LICENSE.md)
+| [Tabler icons](https://github.com/tabler/tabler-icons) | Default menu icons | [MIT](https://github.com/tabler/tabler-icons/blob/master/LICENSE) |
+| [jonsuh/hamburgers](https://github.com/jonsuh/hamburgers) | Hamburger icon of menu | [MIT](https://github.com/jonsuh/hamburgers/blob/master/LICENSE) |
+| [lepture/yue.css](https://github.com/lepture/yue.css) | Part of it is used for styling article content | MIT |
+| [Typlog](https://typlog.com/) | Where the markdown gallery syntax is borrowed from | The author gave me the permission | 
+| [Pure CSS implementation of Google Photos / 500px image layout](https://github.com/xieranmaya/blog/issues/6) | Used for image gallery | - |
 
-## Basic Concepts
+### References
 
-You can read more about Hugo's template language in their documentation here:
+Some references that I took while building this theme:
 
-https://gohugo.io/templates/overview/
-
-The most useful page there is the one about the available functions:
-
-https://gohugo.io/templates/functions/
-
-For assets that are completely static and don't need to go through the asset pipeline,
-use the `site/static` folder. Images, font-files, etc, all go there.
-
-Files in the static folder end up in the web root. So a file called `site/static/favicon.ico`
-will end up being available as `/favicon.ico` and so on...
-
-The `src/index.js` file is the entrypoint for webpack and will be built to `/dist/main.js`
-
-You can use **ES6** and use both relative imports or import libraries from npm.
-
-Any CSS file imported into the `index.js` will be run through Webpack, compiled with [PostCSS Next](http://cssnext.io/), and
-minified to `/dist/[name].[hash:5].css`. Import statements will be resolved as part of the build.
-
-## Environment variables
-
-To separate the development and production _- aka build -_ stages, all tasks run with a node environment variable named either `development` or `production`.
-
-You can access the environment variable inside the theme files with `getenv "NODE_ENV"`. See the following example for a conditional statement:
-
-    {{ if eq (getenv "NODE_ENV") "development" }}You're in development!{{ end }}
-
-All tasks starting with _build_ set the environment variable to `production` - the other will set it to `development`.
-
-## Deploying to Netlify
-
-- Push your clone to your own GitHub repository.
-- [Create a new site on Netlify](https://app.netlify.com/start) and link the repository.
-
-Now Netlify will build and deploy your site whenever you push to git.
-
-You can also click this button:
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify/victor-hugo)
-
-## Enjoy!! 😸
+| Project | Licence|
+| ------- | ------|
+| [artchen/hexo-theme-element](https://github.com/artchen/hexo-theme-element) | [MIT](https://github.com/artchen/hexo-theme-element/blob/master/LICENSE) |
+| [MunifTanjim/minimo](https://github.com/MunifTanjim/minimo) | [MIT](https://github.com/MunifTanjim/minimo/blob/master/LICENSE) |
