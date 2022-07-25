@@ -15,8 +15,7 @@ aliases = ["rust"]
 image = "bg.jpg"
 +++
 
-# Using Rust for writing NodeJS modules
-### - Piyush
+## Using Rust for writing NodeJS modules
 
 Around 2009 I watched some presentations by Ryan introducing NodeJS and was really impressed by the possibilities. That was one of the reasons, around 2011-2012, I started working on a project that used NodeJS to expose Clutter C++ library ( https://wiki.gnome.org/Projects/Clutter ). 
 The idea was to integrate Clutter, which allowed us to write code in JS to create near-native UI for Linux. Here is a video ( by CEO of the company I was working for then ) during a JS conference 
@@ -73,7 +72,7 @@ To use Rust in our API we have two options.
 
 We will use the second option since using ffi might be a little slow and we already have support of awesome libraries like node-bindgen ( which automatically generates a lot of binding related code for us )
 
-### Rust Bindings
+## Rust Bindings
 
 Let us first create our Cargo.toml file
 
