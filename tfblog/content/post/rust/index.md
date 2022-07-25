@@ -1,7 +1,7 @@
 +++
 author = "Piyush"
 title = "Using Rust for writing NodeJS modules"
-date = "2022-07-26"
+date = "2022-07-25"
 description = "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags = [
     "rust",
