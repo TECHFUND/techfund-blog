@@ -1,3 +1,20 @@
++++
+author = "Piyush"
+title = "Using Rust for writing NodeJS modules"
+date = "2022-07-26"
+description = "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
+tags = [
+    "rust",
+    "nodejs"
+]
+categories = [
+    "technical"
+]
+series = ["Rust"]
+aliases = ["rust"]
+image = "bg.jpg"
++++
+
 # Using Rust for writing NodeJS modules
 ### - Piyush
 
