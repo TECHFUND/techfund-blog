@@ -18,13 +18,15 @@ image = "bg.jpg"
 # Using Rust for writing NodeJS modules
 ### - Piyush
 
-Around 2009 I watched some presentations by Ryan on NodeJS and was impressed by the possibilities. That was one of the reason around 2011-2012 I started working on a project that used NodeJS to expose Clutter C++ library ( https://wiki.gnome.org/Projects/Clutter ). The idea was to integrate Clutter, which allowed us to write code in JS to create near-native UI for Linux. Here is a video ( by CEO of the company I was working for then ) during a JS conference 
+Around 2009 I watched some presentations by Ryan introducing NodeJS and was really impressed by the possibilities. That was one of the reasons, around 2011-2012, I started working on a project that used NodeJS to expose Clutter C++ library ( https://wiki.gnome.org/Projects/Clutter ). 
+The idea was to integrate Clutter, which allowed us to write code in JS to create near-native UI for Linux. Here is a video ( by CEO of the company I was working for then ) during a JS conference 
 
 {{< youtube bd95kIJK_D0 >}}
 
 After years of development in C++ and JS, Rust has become my new go-to language. This article acts as a guide/reference for writing Rust modules for NodeJS in order to achieve better performance where required.
 
 For the sake of article let us assume we need an API that needs to return size of directory on server. 
+That article assumes basic understanding of NodeJS and Rust. 
 
 ## Setting up Express API
 ```js
@@ -61,11 +63,13 @@ For the sake of article let us assume we need an API that needs to return size o
       console.log(`App listening on port ${port}`)
     })
 ```
-The test was performed on the assets folder having 40 directories with 1000 files each ( zero bytes ). On Macbook Pro 2017 ( i7, 16 GB Ram ) it takes about `591ms` for above API to give response.
+
+The test was performed on the assets folder having 40 directories with 1000 files each. On Macbook Pro 2017 ( i7, 16 GB Ram ) it takes about `591ms` for above API to give response. The dirSize function reads the directory and uses `stat` to compute the size of the file in recursive manner. We will try to replicate the same in Rust.
 
 To use Rust in our API we have two options. 
-1) Compile in dylib and use ffi to load the dynamic library
-2) To integrate with NodeJS bindings directly.
+1) Compile a function as dylib and use `ffi` to load the dynamic library. 
+  `node-ffi is a Node.js addon for loading and calling dynamic libraries using pure JavaScript. It can be used to create bindings to native libraries without writing any C++ code.` : From [Github Readme](https://github.com/node-ffi/node-ffi) of Node-FFI
+2) Integrate with NodeJS bindings directly.
 
 We will use the second option since using ffi might be a little slow and we already have support of awesome libraries like node-bindgen ( which automatically generates a lot of binding related code for us )
 
@@ -128,22 +132,23 @@ Finally in the src/lib.rs we can create our binding code
         }
     }
 ```
+
 The final structure should look something like this : 
 
 {{< figure src="./dir.png" title="Directory structure" >}}
 
-This allows us to generate a node module that we can directly import inside node console 
+This allows us to generate a node module that we can directly import inside node console.
 
-Simply run 
+To build the project, simply run 
 > cargo install nj-cli
-
+to install the nj-cli and 
 > nj-cli build
-
-To generate dist/index.node which can be imported inside Node directly as a module.
+to build the module ( dist/index.node ) which can be imported inside Node directly.
 
 {{< figure src="./node.png" title="Node Module" >}}
 
-Finally we will modify our Express API to check both versions
+Finally we will modify our Express API to check performance of both versions
+
 ```js
     const express = require("express");
     const { readdir, stat } = require("fs/promises");
