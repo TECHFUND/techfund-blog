@@ -156,7 +156,7 @@ Finally we will modify our Express API to check performance of both versions
     const express = require("express");
     const { readdir, stat } = require("fs/promises");
     const { join } = require("path");
-    const extramodule = require("./dist")
+    const extramodule = require("./dist") // import our custom module
     const app = express();
     const port = 3000;
     
