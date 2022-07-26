@@ -123,7 +123,7 @@ Finally in the src/lib.rs we can create our binding code
     }
     
     #[node_bindgen]
-    fn size(path: String) -> u64 {
+    async fn size(path: String) -> u64 {
         if let Ok(dir_size) = get_size(path) {
             return dir_size;
         } else {
@@ -181,7 +181,7 @@ Finally we will modify our Express API to check performance of both versions
     
     app.get("/v2", async (req, res) => {
       console.time("dir");
-      let size = extramodule.size("./assets/");
+      let size = async extramodule.size("./assets/");
       console.timeEnd("dir");
       res.json({size: Number(size)});
     });
