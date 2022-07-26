@@ -139,9 +139,13 @@ The final structure should look something like this :
 This allows us to generate a node module that we can directly import inside node console.
 
 To build the project, simply run 
+
 > cargo install nj-cli
+
 to install the nj-cli and 
+
 > nj-cli build
+
 to build the module ( dist/index.node ) which can be imported inside Node directly.
 
 {{< figure src="./node.png" title="Node Module" >}}
