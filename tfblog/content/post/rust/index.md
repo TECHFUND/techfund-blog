@@ -138,11 +138,11 @@ The final structure should look something like this :
 
 This allows us to generate a node module that we can directly import inside node console.
 
-To build the project, simply run 
+To build the project first we need the nj-cli installed
 
 > cargo install nj-cli
 
-to install the nj-cli and 
+now we can run
 
 > nj-cli build
 
