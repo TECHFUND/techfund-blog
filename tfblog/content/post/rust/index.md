@@ -181,7 +181,7 @@ Finally we will modify our Express API to check performance of both versions
     
     app.get("/v2", async (req, res) => {
       console.time("dir");
-      let size = async extramodule.size("./assets/");
+      let size = await extramodule.size("./assets/");
       console.timeEnd("dir");
       res.json({size: Number(size)});
     });
