@@ -15,7 +15,7 @@ image = "bg.jpg"
 +++
 
 # Fixed sized blockchain
-### - Piyush
+
 Recently I came across “Mira Protocol” and found it technically interesting. It promises “Fixed sized blockchain”. How it defines a blockchain is as follows :
     - An unambiguous usable representation (ie. not merely hashes) of the parts of the state a typical user would care about namely the current balance of their account.
     - The data that a node needs in order to verify that this state is real in a trustless manner.
