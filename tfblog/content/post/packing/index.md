@@ -1,7 +1,7 @@
 +++
 author = "Piyush"
 title = "Solidity variable packing & saving deployment costs"
-date = "2022-07-25"
+date = "2022-08-19"
 description = "Saving 1000`s of dollars in Ethereum Smart Contracts by a simple technique of variable packing"
 tags = [
     "solidity"
