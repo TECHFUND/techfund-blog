@@ -1,17 +1,16 @@
 +++
 author = "Adrian"
 title = "How to Memoize Results From useQueries Hook using React Query"
-date = "2022-07-25"
+date = "2022-10-02"
 description = "Memoize Results From useQueries Hook using React Query"
 tags = [
-    "rust",
     "react.js"
 ]
 categories = [
     "technical"
 ]
-series = ["Rust"]
-aliases = ["rust"]
+series = ["React"]
+aliases = ["react"]
 image = "bg.jpg"
 +++
 
@@ -19,8 +18,18 @@ image = "bg.jpg"
 
 ## How to Memoize Results From useQueries Hook using React Query
 
-I started using React Query in my projects in late 2021, and I’ve been loving it so far. What’s not to like? Auto refetches, auto retries, client-side caching — I’m quite mad at myself for not trying this library sooner even though I’ve heard about it in the year prior. With that said, I’m writing this to share a very specific thing: how to memoize useQueries hook results to avoid triggering expensive recalculations downstream. Most of my projects at work involve data visualization, and often we need to process and visualize many data points. The size can vary greatly, from a single digit to low double digit data points (e.g., bar charts), 100s to 1000s (e.g. time series line charts, scatter plot, table), or even 10000+ (this is rare though — if any, typically only data analysts & scientists would find this useful). But even with only 100-1000 data points for each chart, often there can be multiple charts on a single page, making any sort of transformation a potential performance bottleneck. Ideally, these expensive transformations should be delegated to the backend, but sometimes there’s still some “last mile” logic such as reformatting the data to fit the required format of a charting library, or to compute layout and data-viz related attributes (e.g. size, color, etc) using D3, etc.
+I started using React Query in my projects in late 2021, and I’ve been loving it so far. What’s not to like? Auto refetches, auto retries, client-side caching — I’m quite mad at myself for not trying this library sooner even though I’ve heard about it in the year prior. 
+
+With that said, I’m writing this to share a very specific thing: how to memoize useQueries hook results to avoid triggering expensive recalculations downstream. Most of my projects at work involve data visualization, and often we need to process and visualize many data points. 
+
+The size can vary greatly, from a single digit to low double digit data points (e.g., bar charts), 100s to 1000s (e.g. time series line charts, scatter plot, table), or even 10000+ (this is rare though — if any, typically only data analysts & scientists would find this useful). 
+
+But even with only 100-1000 data points for each chart, often there can be multiple charts on a single page, making any sort of transformation a potential performance bottleneck. Ideally, these expensive transformations should be delegated to the backend, but sometimes there’s still some “last mile” logic such as reformatting the data to fit the required format of a charting library, or to compute layout and data-viz related attributes (e.g. size, color, etc) using D3, etc.
+
+
 Needless to say, useMemo is the hero we need to avoid unnecessary computations, where the dependency array includes the queried data and potentially other state values(e.g. user interaction or filter-related states).
+
+
 Most of the time, I only need React Query’s useQuery hook to run a single query to the backend/database. For example, let’s say we want to query some data to construct a bubble chart:
 Here is a simple code sample
 
@@ -63,6 +72,7 @@ function useDataPointsSingleGroup() {
 ```
 
 Whenever React Query uses a cached result, the data object is the same. Therefore the decorated data calculation won’t be unnecessarily triggered since data is in the dependency array.
+
 But what if we want to use useQueries to run multiple queries in parallel?
 
 ```js
