@@ -1,6 +1,6 @@
 +++
 author = "Piyush"
-title = "Solidity Auditing tools comparision and issues"
+title = "Solidity Auditing tools comparison and issues"
 date = "2022-09-20"
 description = "Solidity Auditing tools"
 tags = [
