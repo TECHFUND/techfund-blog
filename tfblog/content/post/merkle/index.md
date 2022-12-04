@@ -1,7 +1,7 @@
 +++
 author = "Piyush"
 title = "An Explanation of Merkle Tree and their benefits"
-date = "2022-12-1"
+date = "2022-12-01"
 description = "Merkle Trees"
 tags = [
     "blockchains", "merkle"
